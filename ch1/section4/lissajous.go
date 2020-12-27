@@ -16,7 +16,7 @@ import (
 	"os"
 )
 
-var palette = []color.Color{color.White, color.Black}
+var _ = []color.Color{color.White, color.Black}
 
 const (
 	whiteIndex = 0 // first color in palette
@@ -24,10 +24,10 @@ const (
 )
 
 func main()  {
-	lissajous(os.Stdout)
+	lissajous(os.Stdout, exercise15)
 }
 
-func lissajous(out io.Writer)  {
+func lissajous(out io.Writer, colors []color.Color)  {
 	const (
 		cycles = 5  // number of complete x oscillator revolutions
 		res = 0.001 // angular resolution
@@ -41,7 +41,7 @@ func lissajous(out io.Writer)  {
 	phase := 0.0 // phase difference
 	for i := 0; i < nframes; i++ {
 		rect := image.Rect(0, 0, 2*size + 1, 2*size + 1)
-		img := image.NewPaletted(rect, palette)
+		img := image.NewPaletted(rect, colors)
 		for t := 0.0; t < cycles * 2 * math.Pi; t += res {
 			x := math.Sin(t)
 			y := math.Sin(t * freq + phase)
