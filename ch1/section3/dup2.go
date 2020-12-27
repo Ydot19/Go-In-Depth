@@ -9,6 +9,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 )
 
 func main(){
@@ -34,11 +35,19 @@ func main(){
 			}
 		}
 	}
+
+	for word, n := range counts {
+		if n > 1 {
+			fmt.Printf("%d\t%s\n", n, word)
+		}
+	}
 }
 
 func countLines(f *os.File, counts map[string]int) {
 	scanner := bufio.NewScanner(f)
 	for scanner.Scan() {
-		counts[scanner.Text()]++
+		for _, word := range strings.Fields(scanner.Text()){
+			counts[word]++
+		}
 	}
 }

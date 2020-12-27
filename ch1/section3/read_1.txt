@@ -1,0 +1,12 @@
+In the past year, several major vendors have made announcements of new ARM64 hardware for servers, laptops and developer machines.
+Go was well-positioned for this. For years now, Go has been powering Docker, Kubernetes, and the rest of the Go ecosystem on ARM64 Linux servers, as well as mobile apps on ARM64 Android and iOS devices.
+
+Since Apple’s announcement of the Mac transitioning to Apple silicon this summer, Apple and Google have been working together to ensure that Go and the broader Go ecosystem work well on them, both running Go x86 binaries under Rosetta 2 and running native Go ARM64 binaries.
+Earlier this week, we released the first Go 1.16 beta, which includes native support for Macs using the M1 chip.
+You can download and try the Go 1.16 beta for M1 Macs and all your other systems on the Go download page.
+Of course, this is a beta release and, like all betas, it certainly has bugs we don’t know about.
+If you run into any problems, please report them at golang.org/issue/new
+
+It’s always nice to use the same CPU architecture for local development as in production, to remove one variation between the two environments.
+If you deploy to ARM64 production servers, Go makes it easy to develop on ARM64 Linux and Mac systems too.
+But of course, it’s still as easy as ever to work on one system and cross-compile for deployment to another, whether you’re working on an x86 system and deploying to ARM, working on Windows and deploying to Linux, or some other combination.
